@@ -1,0 +1,34 @@
+<!doctype html>
+<meta charset="UTF-8">
+<script src="../../bower_components/ddp.js/src/ddp.js"></script>
+<script src="../../bower_components/q/q.js"></script>
+<script src="../../bower_components/asteroid/dist/asteroid.browser.js"></script>
+<script src="../../js/jquery/jquery.js"></script>
+
+<style type="text/css">
+	#mainPopup {
+		padding: 10px;
+		height: 200px;
+		width: 400px;
+		font-family: Helvetica, Ubuntu, Arial, sans-serif;
+	}
+	h1 {
+		font-size: 2em;
+	}
+</style>
+
+<div id="mainPopup">
+    <div id="logged" style="display: none">
+        <h1>You don't have active cooking processes</h1>
+        <p>Use mobile app for start cooking.</p>
+    </div>
+    <div id="login">
+        <form action="" class="login-form">
+            <input type="text" class="login" placeholder="login"/>
+            <input type="text" class="password" placeholder="password"/>
+            <input type="submit" value="login"/>
+        </form>
+    </div>
+</div>
+
+<script src="browser_action.js"></script>
