@@ -1,17 +1,3 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
-
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
-
-
-//example of using a message handler from the inject scripts
-chrome.extension.onMessage.addListener(
-    function (request, sender, sendResponse) {
-        chrome.pageAction.show(sender.tab.id);
-        sendResponse();
-    });
-
 
 var application = {
     init: function () {
@@ -33,7 +19,7 @@ var application = {
         if (Notification) {
             var notification = new Notification('Поспешите на кухню!', {
                 icon: 'http://yellowicons.com/wp-content/uploads/Food-Icon-1.png',
-                body: "Ей! Очередной шаг приготовления вашего блюда подошел к концу. Поспешите на кухню и продолжайте готовить!",
+                body: "Эй! Очередной шаг приготовления вашего блюда подошел к концу. Поспешите на кухню и продолжайте готовить!",
             });
             audioNotification();
 
