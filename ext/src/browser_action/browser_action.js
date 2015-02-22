@@ -5,15 +5,23 @@ var application = {
         application.secondCount = 4;
 //        application.app = new Asteroid("localhost:3000");
 
-        app.subscribe("addedTimer");
+        app.subscribe('Timers')
         var timer = app.getCollection("timers");
-        var laundryTimerRQ = timer.reactiveQuery({});
-        // Log the array of results
-        console.log(laundryTimerRQ.result);
-        // Listen for changes
-        laundryTimerRQ.on("change", function () {
+
+        setTimeout(function() {
+            var timer = app.getCollection("timers");
+            var laundryTimerRQ = timer.reactiveQuery({});
+
+            // Log the array of results
             console.log(laundryTimerRQ.result);
-        });
+            // Listen for changes
+            laundryTimerRQ.on("change", function () {
+                console.log(laundryTimerRQ.result);
+                var timerTime = laundryTimerRQ.result[laundryTimerRQ.result.length - 1].timerTime;
+                application.startTimer(timerTime);
+
+            });
+        }, 1000);
 
 //        application.startTimer(application.secondCount);
     },
