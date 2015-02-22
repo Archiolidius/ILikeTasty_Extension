@@ -1,10 +1,13 @@
+var app = new Asteroid("iliketasty.meteor.com");
+
 var application = {
     init: function () {
         application.secondCount = 4;
-        application.app = new Asteroid("http://iliketasty.meteor.com");
-        application.app.subscribe("addedTimer");
-        var timer = application.app.getCollection("tasks");
-        var laundryTimerRQ = timer.reactiveQuery({description: "Do the laundry"});
+//        application.app = new Asteroid("localhost:3000");
+
+        app.subscribe("addedTimer");
+        var timer = app.getCollection("timers");
+        var laundryTimerRQ = timer.reactiveQuery({});
         // Log the array of results
         console.log(laundryTimerRQ.result);
         // Listen for changes
@@ -39,10 +42,10 @@ var application = {
         }
     }
 }
-application.init();
+//application.init();
 
 
-var app = new Asteroid("iliketasty.meteor.com");
+//var app = new Asteroid("localhost:3000");
 
 init();
 
@@ -70,6 +73,7 @@ $('.login-form').on('submit', function (e) {
 app.on('login', function () {
     window.localStorage.setItem('isLogged', true);
     init();
+    application.init();
 });
 
 app.on('logout', function () {
